@@ -1,0 +1,7 @@
+language: cpp
+compiler: 
+  - gcc
+dist: xenial
+script:
+  - g++ sort_comparision.cpp -o sort -std=c++14
+  - ./sort
