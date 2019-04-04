@@ -5,7 +5,6 @@
 void bubbleSort(std::vector<int> vec);
 void selectionSort(std::vector<int> vec);
 void insertionSort(std::vector<int> vec);
-
 void mergeSort(std::vector<int> vec);
 void quickSort(std::vector<int> vec);
 
@@ -157,6 +156,6 @@ std::vector<int> merge(const std::vector<int> &left,
 /////////////////////////////////////////////////////////////////////
 
 void quickSort(std::vector<int> vec) {
-
+  std::vector<int> sorted;
   printVector(sorted);
 }
