@@ -3,7 +3,7 @@ compiler:
   - clang
 dist: xenial
 script:
+  - chmod +x PREPARE_CATCH2_FOR_TESTING.sh RUN_TEST.sh
   - ./PREPARE_CATCH2_FOR_TESTING.sh
   - ./RUN_TEST.sh
-  - chmod +x PREPARE_CATCH2_FOR_TESTING.sh RUN_TEST.sh
   - ./tests
