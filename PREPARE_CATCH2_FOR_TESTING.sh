@@ -11,17 +11,19 @@ echo "System recognized: $OS"
 
 if [ "$OS" = "Windows" ]; then
   compiler="clang-cl"
+  cpp14_flag="-std:c++14"
 elif [ "$OS" = "Linux" ]; then
   compiler="clang++"
+  cpp14_flag="-std=c++14"
 else
  echo "Unknown system"
  exit 1
 fi
 
-$compiler test_main.cpp -c -std:c++14
-$compiler src/sorting_algorithms.cpp -c -std:c++14
-$compiler test_sorting_algorithms.cpp -c -std:c++14
-$compiler test_main.obj test_sorting_algorithms.obj sorting_algorithms.obj -std:c++14 -o tests
+$compiler test_main.cpp -c $cpp14_flag
+$compiler src/sorting_algorithms.cpp -c $cpp14_flag
+$compiler test_sorting_algorithms.cpp -c $cpp14_flag
+$compiler test_main.obj test_sorting_algorithms.obj sorting_algorithms.obj $cpp14_flag -o tests
 
 if [ $? -eq 0 ]; then
   echo "Success: Catch2 build on $OS and is ready for runnig tests(use RUN_TEST.sh from now on)"
