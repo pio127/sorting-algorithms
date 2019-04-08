@@ -1,7 +1,8 @@
 language: cpp
 compiler: 
-  - gcc
+  - clang
 dist: xenial
 script:
-  - g++ sort_comparision.cpp -o sort -std=c++14
-  - ./sort
+  - PREPARE_CATCH2_FOR_TESTING.sh
+  - RUN_TEST.sh
+  - ./tests

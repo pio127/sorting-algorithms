@@ -1,61 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <functional>
+#include "sorting_algorithms.h"
 
-void bubbleSort(std::vector<int> vec);
-void selectionSort(std::vector<int> vec);
-void insertionSort(std::vector<int> vec);
-void mergeSort(std::vector<int> vec);
-void quickSort(std::vector<int> vec);
+// void printVector(const std::vector<int> &vec) {
+//   for (const auto &elem:vec) {
+//     std::cout << elem << " ";
+//   }
+//   std::cout << '\n';
+// }
 
-
-void printVector(const std::vector<int> &vec);
-std::vector<int> merge(
-    const std::vector<int> &left, 
-    const std::vector<int> &right);
-std::vector<int> splitForMergeSort(std::vector<int> &vec);
-
-int main() {
-
-  std::vector<int> vec1{3, 7 ,4, 5, 2, 1, 6};
-  std::vector<int> vec2{6, 5, 4, 3, 2 ,1, 0};
-
-  std::cout << "Input numbers: \n";
-  printVector(vec1);
-  printVector(vec2);
-  std::cout << std::endl;
-
-  std::cout << "Bubble sort: \n";
-  bubbleSort(vec1);
-  bubbleSort(vec2); 
-  std::cout << std::endl;
-
-  std::cout << "Selection sort: \n";
-  selectionSort(vec1);
-  selectionSort(vec2);
-  std::cout << std::endl;
-
-  std::cout << "Insertion sort: \n";
-  insertionSort(vec1);
-  insertionSort(vec2);
-  std::cout << std::endl;
-
-  std::cout << "Merge sort: \n";
-  mergeSort(vec1);
-  mergeSort(vec2);
-  std::cout << std::endl;
-
-
-}
-
-void printVector(const std::vector<int> &vec) {
-  for (const auto &elem:vec) {
-    std::cout << elem << " ";
-  }
-  std::cout << '\n';
-}
-
-void bubbleSort(std::vector<int> vec) {
+/////////////////////////////////////////////////////////////////////
+// Bubble Sort
+/////////////////////////////////////////////////////////////////////
+std::vector<int> bubbleSort(std::vector<int> vec) {
   for (size_t x = 0; x < vec.size(); ++x) {
     for (size_t y = 1; y < vec.size() - x; ++ y) {
       if (vec.at(y-1) > vec.at(y)) {
@@ -63,10 +18,13 @@ void bubbleSort(std::vector<int> vec) {
       }
     }
   }
-  printVector(vec);
+  return vec;
 }
 
-void selectionSort(std::vector<int> vec) {
+/////////////////////////////////////////////////////////////////////
+// Selection Sort
+/////////////////////////////////////////////////////////////////////
+std::vector<int> selectionSort(std::vector<int> vec) {
   int minimum, indexOfMinimum;
   for (size_t x = 0; x < vec.size(); ++x) {
     minimum = vec.at(x);
@@ -79,10 +37,13 @@ void selectionSort(std::vector<int> vec) {
     }
     std::swap(vec.at(x), vec.at(indexOfMinimum));
   }
-  printVector(vec);
+  return vec;
 }
 
-void insertionSort(std::vector<int> vec) {
+/////////////////////////////////////////////////////////////////////
+// Insertion Sort
+/////////////////////////////////////////////////////////////////////
+std::vector<int> insertionSort(std::vector<int> vec) {
   for (size_t x = 1; x < vec.size(); ++x) {
     for(size_t y = x; y>0; --y) {
       if (vec.at(y-1) > vec.at(y)) {
@@ -92,15 +53,15 @@ void insertionSort(std::vector<int> vec) {
       }
     }
   }
-  printVector(vec);
+  return vec;
 }
+
 /////////////////////////////////////////////////////////////////////
 // Merge Sort
 /////////////////////////////////////////////////////////////////////
-
-void mergeSort(std::vector<int> vec) {
+std::vector<int> mergeSort(std::vector<int> vec) {
   std::vector<int> sorted = splitForMergeSort(vec);
-  printVector(sorted);
+  return sorted;
 }
 
 std::vector<int> splitForMergeSort(std::vector<int> &vec) {
@@ -151,11 +112,15 @@ std::vector<int> merge(const std::vector<int> &left,
   }
   return merged;
 }
+
 /////////////////////////////////////////////////////////////////////
 // Quick Sort
 /////////////////////////////////////////////////////////////////////
+std::vector<int> quickSort(std::vector<int> vec) {
+  quickSortElements(vec);
+  return vec;
+}
 
-void quickSort(std::vector<int> vec) {
-  std::vector<int> sorted;
-  printVector(sorted);
+void quickSortElements(std::vector<int> &vec) {
+  
 }
