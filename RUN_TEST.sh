@@ -22,6 +22,14 @@ else
  exit 1
 fi
 
+if ! [ -x "$(command -v $compiler)" ]; then
+	echo "Warning: no $compiler found" >&2
+  compiler="g++"
+elif ! [ -x "$(command -v $compiler)" ]; then
+  echo "Error: no clang or gcc compiler found!"
+fi
+echo "Compiler used: $compiler"
+
 $compiler test_sorting_algorithms.cpp -c $cpp14_flag
 $compiler src/sorting_algorithms.cpp -c $cpp14_flag
 $compiler test_main$object_file_extension \

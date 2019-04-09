@@ -1,7 +1,7 @@
 #include "catch.hpp"
 #include "src/sorting_algorithms.h"
 
-TEST_CASE("Sort algorithms tested:") {
+TEST_CASE("Sort algorithm tested:") {
   // Input unsorted arrays
   std::vector<int> unsorted1{4, 3, 2, 6, 1, 5, 7};
   std::vector<int> unsorted2{9, 8, 7, 6, 5, 4, 3, 2, 1};
