@@ -27,6 +27,7 @@ if ! [ -x "$(command -v $compiler)" ]; then
   compiler="g++"
 elif ! [ -x "$(command -v $compiler)" ]; then
   echo "Error: no clang or gcc compiler found!"
+  exit 1
 fi
 echo "Compiler used: $compiler"
 
