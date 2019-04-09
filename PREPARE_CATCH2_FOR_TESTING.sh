@@ -22,13 +22,18 @@ else
  exit 1
 fi
 
+if ! [ -x "$(command -v $compiler)" ]; then
+	echo "Warning: no $compiler found" >&2
+  compiler="g++"
+elif ! [ -x "$(command -v $compiler)" ]; then
+  echo "Error: no clang or gcc compiler found!"
+fi
+echo "Compiler used: $compiler"
+
+# Compiling test main for the first time
 $compiler test_main.cpp -c $cpp14_flag
-$compiler src/sorting_algorithms.cpp -c $cpp14_flag
-$compiler test_sorting_algorithms.cpp -c $cpp14_flag
-$compiler test_main$object_file_extension \
-test_sorting_algorithms$object_file_extension \
-sorting_algorithms$object_file_extension $cpp14_flag -o  tests
 
 if [ $? -eq 0 ]; then
-  echo "Success: Catch2 build on $OS and is ready for runnig tests(use RUN_TEST.sh from now on)"
+  echo "Success: Catch2 build on $OS and is ready for running tests  
+       (use RUN_TEST.sh from now on)"
 fi

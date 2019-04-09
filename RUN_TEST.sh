@@ -30,8 +30,14 @@ elif ! [ -x "$(command -v $compiler)" ]; then
 fi
 echo "Compiler used: $compiler"
 
+# Compiling
+$compiler src/basic_sorts.cpp -c $cpp14_flag
+$compiler src/quick_sort.cpp -c $cpp14_flag
+$compiler src/merge_sort.cpp -c $cpp14_flag
 $compiler test_sorting_algorithms.cpp -c $cpp14_flag
-$compiler src/sorting_algorithms.cpp -c $cpp14_flag
+
 $compiler test_main$object_file_extension \
 test_sorting_algorithms$object_file_extension \
-sorting_algorithms$object_file_extension $cpp14_flag -o tests && ./tests -s
+merge_sort$object_file_extension \
+quick_sort$object_file_extension \
+basic_sorts$object_file_extension $cpp14_flag -o tests && ./tests -s

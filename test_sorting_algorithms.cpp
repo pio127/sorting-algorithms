@@ -1,5 +1,7 @@
 #include "catch.hpp"
-#include "src/sorting_algorithms.h"
+#include "src/basic_sorts.h"
+#include "src/quick_sort.h"
+#include "src/merge_sort.h"
 
 TEST_CASE("Sort algorithm tested:") {
   // Input unsorted arrays
