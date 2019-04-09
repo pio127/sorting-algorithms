@@ -26,4 +26,4 @@ $compiler test_sorting_algorithms.cpp -c $cpp14_flag
 $compiler src/sorting_algorithms.cpp -c $cpp14_flag
 $compiler test_main$object_file_extension \
 test_sorting_algorithms$object_file_extension \
-sorting_algorithms$object_file_extension $cpp14_flag -o  tests && ./tests
+sorting_algorithms$object_file_extension $cpp14_flag -o tests && ./tests -s
